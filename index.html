@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio-Srivardhan</title>
+    <link rel="icon" href="logo.jpeg" />
+    <link rel="stylesheet" href="profile_styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <!-- Page 1 with Buttons -->
+    <div id="page1" class="intro">
+        <h1>NUTENKI SRIVARDHAN</h1>
+        <button class="btn" onclick="scrollToSection('about')">ABOUT ME</button>
+        <button class="btn" onclick="scrollToSection('skills')">SKILLS</button>
+        <button class="btn" onclick="scrollToSection('projects')">PROJECTS</button>
+        <button class="btn" onclick="scrollToSection('contact')">CONTACT</button>
+    </div>
+
+    <!-- Slide 1: Profile -->
+    <div class="slide1" id="about">
+        <div class="heading">
+            <h1>ABOUT ME</h1>
+        </div>
+        <div>
+            <div>
+                <img src="profile_image.jpg" alt="profile image">
+            </div>
+            <div>
+                <p>Myself <strong>Srivardhan</strong>, a passionate computer science 
+                    student specializing in CSE(AI & ML) in Vaagdevi 
+                    college of engineering, with expertise in developing 
+                    advanced projects such as image recognition systems 
+                    using CNN models. Alongside proficiency in Python, 
+                    AWS(EC2) and web development.</p>
+                <p><a href="https://drive.google.com/file/d/1Nh3V8eaW9tDo6e0EkqVA2l-QLD-9xLXj/view?usp=drive_link" target="_blank">Discover More</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: skills -->
+    <div class="slide2" id="skills">
+        <h1>My Skills</h1>
+        <div class="content">
+            <h2>Programming Languages</h2>
+            <ul>
+                <li>C - Beginner</li>
+                <li>C++ - Beginner</li>
+                <li>Python - Intermediate</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Web Development</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>Cloud computing</h2>
+            <ul>
+                <li>AWS- EC2</li>
+            </ul>
+            <h2>Machine learning</h2>
+            <UL>
+                <li>CNN</li>
+            </UL>
+        </div>
+    </div>
+
+    <!--slide 3:Projects-->
+        <!-- Slide 3: Projects -->
+    <div class="slide3" id="projects">
+    <h1>Projects</h1>
+    <div class="proj-container">
+        <div class="proj">
+            <img src="image recognition.png" alt="Image recognition using CNN">
+            <h2>Image recognition using CNN</h2>  
+            <p>A deep learning-based project that uses Convolutional Neural Networks
+                 (CNN) to classify and recognize images from various datasets, 
+                 improving the accuracy of image recognition systems.</p>
+            <button type="button" onclick="window.open('https://github.com/srivardhan8919/ImageRecognition-CNN-CIFAR10-Gradio')">Visit GitHub</button>       
+        </div>
+        <div class="proj">
+            <img src="image recognition using inception and xception.png" alt="InceptionV3 & Xception">
+            <h2>Image recognition using InceptionV3 & Xception</h2>
+            <p>This project enhances image recognition by leveraging advanced pre-trained 
+                models, InceptionV3 and Xception, to achieve superior accuracy and 
+                efficiency in classifying complex images.</p>
+            <button type="button" onclick="window.open('https://github.com/srivardhan8919/image-recognition-inception-xception-gradio')">Visit GitHub</button> 
+        </div>
+        <div class="proj">
+            <img src="nlp-chatbot.png" alt="NLP Chatbot">
+            <h2>NLP-based chatbot for college information retrieval</h2>
+            <p>An AI-powered chatbot designed to answer college-related queries, utilizing 
+                Natural Language Processing (NLP) techniques to understand and provide 
+                accurate information about college resources.</p>
+            <button type="button" onclick="window.open('https://github.com/srivardhan8919/NLP-Powered-Chatbot-for-College-Information')">Visit GitHub</button>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Slide 4: Contact -->
+    <div class="slide4" id="contact">
+        <ul class="content">
+            <li><strong>Phone:</strong> +91-8919206043</li>
+            <li><strong>Email:</strong> <a href="mailto:srivardhannani8919@gmail.com">srivardhannani8919@gmail.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sri-vardhan-nutenki-207b55249" target="_blank">linkedin.com/in/sri-vardhan-nutenki-207b55249</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/srivardhan8919" target="_blank">github.com/srivardhan8919</a></li>
+        </ul>
+    </div>
+
+    <!-- Go to Top Button -->
+    <button id="goToTopBtn" class="go-to-top-btn" onclick="scrollToTop()">↑</button>
+
+    <script src="scripts.js"></script> <!-- Link to external JavaScript -->
+    <footer style="text-align: center; padding: 10px; background-color: #d9eafb;">
+        <p>© 2024 by Srivardhan. All rights reserved</p>
+    </footer>
+</body>
+</html>
