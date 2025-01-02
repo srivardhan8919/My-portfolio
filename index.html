@@ -10,7 +10,7 @@
 <body>
     <!-- Page 1 with Buttons -->
     <div id="page1" class="intro">
-        <h1>NUTENKI SRIVARDHAN</h1>
+        <h1 id="typed-name"></h1>
         <button class="btn" onclick="scrollToSection('about')">ABOUT ME</button>
         <button class="btn" onclick="scrollToSection('skills')">SKILLS</button>
         <button class="btn" onclick="scrollToSection('projects')">PROJECTS</button>
@@ -33,7 +33,7 @@
                     advanced projects such as image recognition systems 
                     using CNN models. Alongside proficiency in Python, 
                     AWS(EC2) and web development.</p>
-                <p><a href="https://drive.google.com/file/d/1rQ-MDaRnK7HhXaRPrQUc33sSsR9Nq8sl/view?usp=sharing" target="_blank">Discover More</a></p>
+                <p><a href="https://drive.google.com/file/d/1Nh3V8eaW9tDo6e0EkqVA2l-QLD-9xLXj/view?usp=drive_link" target="_blank">Discover More</a></p>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
     <!-- Slide 2: skills -->
     <div class="slide2" id="skills">
         <h1>My Skills</h1>
-        <div class="content">
+        <div class="content2">
             <h2>Programming Languages</h2>
             <ul>
                 <li>C - Beginner</li>
@@ -49,7 +49,7 @@
                 <li>Python - Intermediate</li>
             </ul>
         </div>
-        <div class="content">
+        <div class="content2">
             <h2>Web Development</h2>
             <ul>
                 <li>HTML</li>
@@ -57,7 +57,7 @@
                 <li>JavaScript</li>
             </ul>
         </div>
-        <div class="content">
+        <div class="content2">
             <h2>Cloud computing</h2>
             <ul>
                 <li>AWS- EC2</li>
@@ -98,19 +98,59 @@
                 accurate information about college resources.</p>
             <button type="button" onclick="window.open('https://github.com/srivardhan8919/NLP-Powered-Chatbot-for-College-Information')">Visit GitHub</button>
         </div>
+        <div class="proj">
+            <img src="ai-powered-expenses-tracker.png" alt="InceptionV3 & Xception">
+            <h2>AI-Powered Expense Tracker</h2>
+            <p>The AI-Powered Expense Tracker automates expense categorization and 
+                provides actionable financial insights using Python and machine learning. 
+                With a Gradio interface, users can upload CSV files for instant data visualization 
+                and financial suggestions.</p>
+            <button type="button" onclick="window.open('https://github.com/srivardhan8919/AI-Powered-Expense-Tracker-Gradio')">Visit GitHub</button> 
+        </div>
     </div>
     </div>
 
 
     <!-- Slide 4: Contact -->
     <div class="slide4" id="contact">
-        <ul class="content">
-            <li><strong>Phone:</strong> +91-8919206043</li>
-            <li><strong>Email:</strong> <a href="mailto:srivardhannani8919@gmail.com">srivardhannani8919@gmail.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/srivardhan-nutenki-207b55249/" target="_blank">linkedin.com/in/sri-vardhan-nutenki-207b55249</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/srivardhan8919" target="_blank">github.com/srivardhan8919</a></li>
+    <div class="content">
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+            <h3>I would love to hear from you!</h3>
+            <form id="feedbackForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Feedback</button>
+            </form>
+        </div>
+        <div class="buttons-ln">
+        <ul>
+            <!-- LinkedIn -->
+            <li>
+                <a href="https://www.linkedin.com/in/srivardhan-nutenki-207b55249" target="_blank">
+                    <img src="linkedin_logo.png" alt="LinkedIn" style="width: 40px; height: 40px;">
+                </a>
+            </li>
+
+            <!-- Gmail -->
+            <li>
+                <a href="mailto:srivardhannani8919@gmail.com" target="_blank">
+                    <img src="gmail_logo.png" alt="Gmail" style="width: 40px; height: 40px;">
+                </a>
+            </li>
+
+            <!-- GitHub -->
+            <li>
+                <a href="https://github.com/srivardhan8919" target="_blank">
+                    <img src="github_logo.png" alt="GitHub" style="width: 40px; height: 40px;">
+                </a>
+            </li>
         </ul>
+        </div>
     </div>
+    </div>
+
 
     <!-- Go to Top Button -->
     <button id="goToTopBtn" class="go-to-top-btn" onclick="scrollToTop()">↑</button>

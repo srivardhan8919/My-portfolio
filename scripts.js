@@ -18,3 +18,36 @@ window.onscroll = function() {
         goToTopBtn.style.display = "none";
     }
 };
+
+document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Message sent! Thank you for your feedback.");
+    document.getElementById("feedbackForm").reset();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const nameElement = document.getElementById('typed-name');
+    const nameText = 'NUTENKI SRIVARDHAN';
+    const typingSpeed = 200; // Milliseconds per character
+    const pauseBeforeRestart = 2000; // Milliseconds to pause before restarting
+
+    let index = 0;
+
+    function typeEffect() {
+        if (index < nameText.length) {
+            nameElement.textContent += nameText.charAt(index);
+            index++;
+            setTimeout(typeEffect, typingSpeed);
+        } else {
+            setTimeout(resetEffect, pauseBeforeRestart);
+        }
+    }
+
+    function resetEffect() {
+        nameElement.textContent = '';
+        index = 0;
+        setTimeout(typeEffect, typingSpeed);
+    }
+
+    typeEffect();
+});
