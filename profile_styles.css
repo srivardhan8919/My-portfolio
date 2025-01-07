@@ -446,7 +446,18 @@ html, body {
         height: auto;
     }
     
-    .slide1 > div:nth-child(2),
+    .slide1 > div:nth-child(2){
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slide1 p{
+        text-align: center;
+    }
+
+    .slide1 img{
+        height: 30vh;
+    }
     .proj-container {
         flex-direction: column;
         align-items: center;
