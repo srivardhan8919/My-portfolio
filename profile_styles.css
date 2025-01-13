@@ -101,7 +101,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f3f8fe, #80b5ee);
+    background: linear-gradient(135deg, #568dcf, #c5c5c5b9);
     padding: 20px;
     text-align: center;
 }
@@ -185,7 +185,7 @@ body {
     min-width: 250px; /* Ensures each project has a minimum width */
 }
 .proj:hover {
-    box-shadow: 0 15px 45px rgba(0, 179, 176, 0.722);
+    box-shadow: 0 15px 45px rgba(163, 215, 255, 0.925);
     transform: translateY(-7px);
 }
 
@@ -420,16 +420,19 @@ html, body {
     .intro {
         padding: 10px;
         text-align: center;
+        height: 40vh;
     }
 
     .intro h1 {
         font-size: 1.5rem;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
+        margin-top: 20px;
     }
 
     .intro button {
         font-size: 0.75rem;
         padding: 5px 10px;
+        margin-bottom: 5px;
     }
 
     .slide1, .slide3, #skills, #contact {
@@ -438,10 +441,10 @@ html, body {
     }
 
     .slide1 h1, .slide3 h1, #skills h1 {
-        font-size: 2rem;
+        font-size: 1.65rem;
     }
 
-    .intro, .slide1, .slide2, .slide3, .slide4{
+    .slide3{
         width: auto;
         height: auto;
     }
@@ -453,10 +456,11 @@ html, body {
 
     .slide1 p{
         text-align: center;
+        font-size: 1rem;
     }
 
     .slide1 img{
-        height: 30vh;
+        height: 25vh;
     }
     .proj-container {
         flex-direction: column;
@@ -470,9 +474,15 @@ html, body {
     }
 
     .proj img {
-        width: 100%;
+        width: 90%;
         height: auto;
         border-radius: 10px;
+    }
+    .proj h2{
+        font-size: 1.2rem;
+    }
+    .proj p{
+        font-size: 0.9rem;
     }
 
     .proj button {
@@ -480,20 +490,35 @@ html, body {
         padding: 10px 15px;
     }
 
-    #skills ul li {
-        font-size: 0.9rem;
-        padding: 10px;
+    #skills{
+        height: fit-content;
+        padding: 40px;
     }
 
+    #skills ul li {
+        font-size: 0.9rem;
+        padding: 7.5px;
+    }
+    #skills h2 {
+        font-size: 1.25rem;
+    }
+    #contact{
+        background-image: none;
+        align-items: center;
+        background: linear-gradient(135deg, #01357dd4, #a7cdea);
+    }
     .feedback-form {
-        width: 90%;
-        margin: 0 auto;
+        margin-right: 25px;
         padding: 15px;
     }
 
     .feedback-form input,
     .feedback-form textarea {
         font-size: 0.9rem;
+    }
+
+    .content .buttons-ln{
+        margin-left: 20%;
     }
 
     .go-to-top-btn {
