@@ -27,27 +27,163 @@ document.getElementById("feedbackForm").addEventListener("submit", function(even
 
 document.addEventListener('DOMContentLoaded', () => {
     const nameElement = document.getElementById('typed-name');
-    const nameText = 'NUTENKI SRIVARDHAN';
+    const textArray = ['Cloud Engineer', 'AI Enthusiast', 'Front End Developer', 'ML Developer']; // Add more if needed
     const typingSpeed = 200; // Milliseconds per character
-    const pauseBeforeRestart = 2000; // Milliseconds to pause before restarting
-
-    let index = 0;
+    const pauseBeforeDelete = 1000; // Pause before deleting text
+    const pauseBeforeNext = 1500; // Pause before typing the next text
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
     function typeEffect() {
-        if (index < nameText.length) {
-            nameElement.textContent += nameText.charAt(index);
-            index++;
-            setTimeout(typeEffect, typingSpeed);
+        const currentText = textArray[textIndex];
+        if (!isDeleting) {
+            nameElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentText.length) {
+                setTimeout(() => (isDeleting = true), pauseBeforeDelete);
+            }
         } else {
-            setTimeout(resetEffect, pauseBeforeRestart);
+            nameElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(typeEffect, pauseBeforeNext);
+                return;
+            }
         }
-    }
-
-    function resetEffect() {
-        nameElement.textContent = '';
-        index = 0;
-        setTimeout(typeEffect, typingSpeed);
+        setTimeout(typeEffect, isDeleting ? 100 : typingSpeed);
     }
 
     typeEffect();
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const progressBars = document.querySelectorAll('.progress-bar');
+  progressBars.forEach(bar => {
+    const percentage = bar.getAttribute('data-percentage');
+    // Use setTimeout to allow a brief delay before the animation begins
+    setTimeout(() => {
+      bar.style.width = percentage + '%';
+    }, 300);
+  });
+});
+
+/* ========= Animated Character's Eyes Following the Cursor ========= */
+const leftEye = document.querySelector('.left-eye');
+const rightEye = document.querySelector('.right-eye');
+const characterContainer = document.querySelector('.character-container');
+
+document.addEventListener('mousemove', (e) => {
+  const rect = characterContainer.getBoundingClientRect();
+  const eyeCenterX = rect.left + rect.width / 2;
+  const eyeCenterY = rect.top + rect.height / 2;
+  const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+  const eyeMovement = 10; // Adjust for how far the eyes move
+
+  leftEye.style.transform = `translate(${Math.cos(angle) * eyeMovement}px, ${Math.sin(angle) * eyeMovement}px)`;
+  rightEye.style.transform = `translate(${Math.cos(angle) * eyeMovement}px, ${Math.sin(angle) * eyeMovement}px)`;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cursor = document.querySelector(".cursor");
+
+    document.addEventListener("mousemove", (e) => {
+        let x = e.clientX;
+        let y = e.clientY;
+        
+        // Move cursor smoothly
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
+
+        createStormParticle(x, y);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const sliderContainer = document.querySelector('.slider-container');
+  const projectsGrid = document.querySelector('.projects-grid');
+  const leftArrow = document.querySelector('.slider-arrow.left');
+  const rightArrow = document.querySelector('.slider-arrow.right');
+  let autoScrollInterval;
+  
+  // ----- Infinite Loop Setup -----
+  // Clone all original project items to enable seamless looping.
+  const originalProjects = Array.from(projectsGrid.querySelectorAll('.project'));
+  originalProjects.forEach(project => {
+    const clone = project.cloneNode(true);
+    projectsGrid.appendChild(clone);
+  });
+  // Calculate the width occupied by the original projects.
+  const originalScrollWidth = projectsGrid.scrollWidth / 2;
+  
+  // ----- Auto-Scroll with Infinite Loop -----
+  // Start auto-scrolling every 3 seconds.
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      projectsGrid.scrollBy({ left: 400, behavior: 'smooth' });
+      // If we've scrolled past the original projects, reset instantly.
+      if (projectsGrid.scrollLeft >= originalScrollWidth) {
+        projectsGrid.scrollTo({ left: 0, behavior: 'auto' });
+      }
+    }, 3000);
+  }
+  
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+  
+  sliderContainer.addEventListener('mouseenter', stopAutoScroll);
+  sliderContainer.addEventListener('mouseleave', startAutoScroll);
+  startAutoScroll();
+  
+  // ----- Manual Navigation -----
+  leftArrow.addEventListener('click', () => {
+    projectsGrid.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+  
+  rightArrow.addEventListener('click', () => {
+    projectsGrid.scrollBy({ left: 300, behavior: 'smooth' });
+    // Also check if we've passed the original items.
+    if (projectsGrid.scrollLeft >= originalScrollWidth) {
+        const excess = projectsGrid.scrollLeft - originalScrollWidth;
+        projectsGrid.scrollTo({ left: excess, behavior: 'auto' });
+      }
+  });
+  
+  // ----- Intersection Observer for Entry Animations -----
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.project').forEach(project => {
+    observer.observe(project);
+  });
+  
+  // ----- Ripple Effect on Button Click -----
+  document.querySelectorAll('.project-info button').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
+      ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
+      ripple.classList.add('ripple-effect');
+      this.appendChild(ripple);
+      
+      // Remove the ripple after the animation completes.
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
 });
